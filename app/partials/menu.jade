@@ -9,9 +9,9 @@
       a.navbar-brand(href="#") Wallet Demo App
     .navbar-collapse.collapse
       ul.nav.navbar-nav
-        li.active
+        li(ng-class="{ active: isPath('/wallet') }")
           a(href='#wallet',id="wallet-link") Wallet
         li
           a(href='#',id="reset-link",ng-click='reset()') Reset
-        li
+        li(ng-class="{ active: isPath('/source') }")
           a(href='#source',id="wallet-source") View source

@@ -64,9 +64,13 @@
   ]);
 
   app.controller('menuController', [
-    '$scope', function($scope) {
-      return $scope.reset = function() {
-        return $scope.$emit('resetWallet', {});
+    '$scope', '$rootScope', '$location', function($scope, $rootScope, $location) {
+      $scope.reset = function() {
+        return $rootScope.$broadcast('resetWallet', {});
+      };
+      return $scope.isPath = function(path) {
+        console.log($location.path());
+        return $location.path().substr(0, path.length) === path;
       };
     }
   ]);

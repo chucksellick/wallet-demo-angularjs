@@ -69,10 +69,15 @@ app.controller('walletController', ['$scope', 'localStorageService', ($scope, lo
 
 ])
 
-app.controller('menuController', ['$scope', ($scope)->
+app.controller('menuController', ['$scope', '$rootScope', '$location', ($scope, $rootScope, $location)->
   # Send reset event to wallet
   $scope.reset = ()->
-    $scope.$emit('resetWallet', {})
+    $rootScope.$broadcast('resetWallet', {})
+
+  # Get active class for menu
+  $scope.isPath = (path)->
+    console.log $location.path()
+    ($location.path().substr(0, path.length) == path)
 ])
 
 app.controller('sourceController', ['$scope', '$http', ($scope, $http)->
@@ -86,6 +91,7 @@ app.controller('sourceController', ['$scope', '$http', ($scope, $http)->
     "styles/style.styl"
   ]
   $scope.sources = []
+  # Load source files asynchronously
   async.each(sources,(item,cb)->
     $http({method: 'GET', url: '/'+item}).success((data, status, headers, config)->
         $scope.sources.push(
