@@ -83,7 +83,7 @@
       return async.each(sources, function(item, cb) {
         return $http({
           method: 'GET',
-          url: '/' + item
+          url: item
         }).success(function(data, status, headers, config) {
           return $scope.sources.push({
             filename: item,
