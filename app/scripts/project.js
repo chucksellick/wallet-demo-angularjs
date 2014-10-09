@@ -15,10 +15,13 @@
           amount: -6.23
         }
       ];
-      return $scope.getTotal = function() {
+      $scope.getTotal = function() {
         return _.reduce($scope.items, function(memo, item) {
           return memo + item.amount;
         }, 0);
+      };
+      return $scope.resetItems = function() {
+        return $scope.items = [];
       };
     }
   ]);

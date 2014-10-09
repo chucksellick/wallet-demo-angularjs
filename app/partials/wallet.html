@@ -4,7 +4,7 @@
     <h1>Your Wallet</h1>
   </header>
   <p class="total">Grand total:</p>
-  <p class="total-value">{{getTotal()}}</p>
+  <p class="total-value">{{getTotal() | currency : '£' }}</p>
   <h2>Transactions</h2>
   <div id="transactions">
     <table class="trans-list">
@@ -13,13 +13,13 @@
         <th>Amount</th>
       </tr>
       <tr ng-repeat="item in items">
-        <td>{{item.date}}</td>
-        <td>{{item.amount}}</td>
+        <td>{{item.date | date}}</td>
+        <td>{{item.amount | currency : '£' }}</td>
       </tr>
     </table>
     <h3>Make a transaction</h3>
     <p>
       <input id="trans-value" type="text"/> <a id="trans-add" href="#">Add</a> <a id="trans-remove" href="#">Remove</a>
-    </p>
+    </p><a href="#" id="reset-link" ng-click="resetItems()">Reset</a>
   </div>
 </article>

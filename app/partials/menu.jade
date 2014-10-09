@@ -1,8 +1,8 @@
-nav
+nav(ng-controller='walletController')
   ul
     li
       a(href='#wallet',id="wallet-link") Wallet
     li
-      a(href='#reset',id="reset-link") Reset
+      a(href='#',id="reset-link",ng-click='resetItems()') Reset
     li
       a(href='#source',id="wallet-source") View source

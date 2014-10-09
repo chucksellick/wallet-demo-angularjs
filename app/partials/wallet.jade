@@ -1,8 +1,8 @@
-article#wallet(ng-controller="walletController")
+article#wallet(ng-controller='walletController')
   header
     h1 Your Wallet
   p.total Grand total:
-  p.total-value {{getTotal()}}
+  p.total-value {{getTotal() | currency : '£' }}
   h2 Transactions
   div#transactions
     table.trans-list
@@ -10,7 +10,8 @@ article#wallet(ng-controller="walletController")
         th Date
         th Amount
       tr(ng-repeat='item in items')
-        td {{item.date}}
-        td {{item.amount}}
+        td {{item.date | date}}
+        td {{item.amount | currency : '£' }}
     h3 Make a transaction
     p #[input#trans-value(type='text')] #[a#trans-add(href='#') Add] #[a#trans-remove(href='#') Remove]
+    a(href='#',id="reset-link",ng-click='resetItems()') Reset

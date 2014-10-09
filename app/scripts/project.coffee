@@ -8,5 +8,6 @@ app.controller('walletController', ['$scope', ($scope)->
   $scope.getTotal = ()-> _.reduce($scope.items, (memo, item)->
     memo + item.amount
   , 0);
-
+  $scope.resetItems = ()->
+    $scope.items = []
 ])
