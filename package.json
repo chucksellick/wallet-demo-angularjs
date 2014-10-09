@@ -1,0 +1,13 @@
+{
+  "name": "wallet-demo",
+  "version": "1.0.0",
+  "description": "Wallet demo app",
+  "author": "Peter Hurst <pete.hurst@gmail.com>",
+  "main": "server.coffee",
+  "dependencies": {
+    "async": "~0.8.0",
+    "express": "4.x",
+    "plates": "https://github.com/flatiron/plates/tarball/master"
+  },
+  "private": true
+}
