@@ -51,3 +51,28 @@ app.controller('menuController', ['$scope', ($scope)->
   $scope.reset = ()->
     $scope.$emit('resetWallet', {})
 ])
+
+app.controller('sourceController', ['$scope', '$http', ($scope, $http)->
+  # Setup list of sources to view
+  sources = [
+    "index.html",
+    "partials/menu.html",
+    "partials/wallet.html",
+    "partials/source.html",
+    "scripts/project.coffee"
+  ]
+  $scope.sources = []
+  async.each(sources,(item,cb)->
+    $http({method: 'GET', url: '/'+item}).success((data, status, headers, config)->
+        $scope.sources.push(
+          filename: item,
+          source: data
+        )
+      ).error((data, status, headers, config)->
+        $scope.sources.push(
+          filename: item,
+          source: "ERROR READING FILE"
+        )
+      )
+  )
+])

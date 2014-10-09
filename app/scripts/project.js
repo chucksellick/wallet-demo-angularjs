@@ -52,4 +52,28 @@
     }
   ]);
 
+  app.controller('sourceController', [
+    '$scope', '$http', function($scope, $http) {
+      var sources;
+      sources = ["index.html", "partials/menu.html", "partials/wallet.html", "partials/source.html", "scripts/project.coffee"];
+      $scope.sources = [];
+      return async.each(sources, function(item, cb) {
+        return $http({
+          method: 'GET',
+          url: '/' + item
+        }).success(function(data, status, headers, config) {
+          return $scope.sources.push({
+            filename: item,
+            source: data
+          });
+        }).error(function(data, status, headers, config) {
+          return $scope.sources.push({
+            filename: item,
+            source: "ERROR READING FILE"
+          });
+        });
+      });
+    }
+  ]);
+
 }).call(this);

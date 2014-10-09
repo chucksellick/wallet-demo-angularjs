@@ -1,0 +1,14 @@
+
+<article id="source" ng-controller="sourceController">
+  <header>
+    <h1>View Source</h1>
+  </header>
+  <div id="source-items">
+    <article ng-repeat="item in sources" class="source-item">
+      <header>
+        <h2>{{item.filename}}</h2>
+      </header>
+      <pre>{{item.source}}</pre>
+    </article>
+  </div>
+</article>
