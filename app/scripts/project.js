@@ -55,7 +55,7 @@
   app.controller('sourceController', [
     '$scope', '$http', function($scope, $http) {
       var sources;
-      sources = ["index.html", "partials/menu.html", "partials/wallet.html", "partials/source.html", "scripts/project.coffee"];
+      sources = ["index.jade", "partials/menu.jade", "partials/wallet.jade", "partials/source.jade", "scripts/project.coffee", "styles/style.styl"];
       $scope.sources = [];
       return async.each(sources, function(item, cb) {
         return $http({

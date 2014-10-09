@@ -15,7 +15,7 @@
       </tr>
       <tr ng-repeat="item in items">
         <td>{{item.date | date}}</td>
-        <td>{{item.amount | currency : '£' }}</td>
+        <td ng-class="{negative: item.amount&lt;0}">{{item.amount | currency : '£' }}</td>
       </tr>
     </table>
     <h3>Make a transaction</h3>

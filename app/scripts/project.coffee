@@ -55,11 +55,12 @@ app.controller('menuController', ['$scope', ($scope)->
 app.controller('sourceController', ['$scope', '$http', ($scope, $http)->
   # Setup list of sources to view
   sources = [
-    "index.html",
-    "partials/menu.html",
-    "partials/wallet.html",
-    "partials/source.html",
-    "scripts/project.coffee"
+    "index.jade",
+    "partials/menu.jade",
+    "partials/wallet.jade",
+    "partials/source.jade",
+    "scripts/project.coffee",
+    "styles/style.styl"
   ]
   $scope.sources = []
   async.each(sources,(item,cb)->
