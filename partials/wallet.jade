@@ -1,0 +1,13 @@
+article#wallet
+  header
+    h1 Your Wallet
+  p.total Grand total:
+  p.total-value {{grandTotal}}
+  h2 Transactions
+  div#transactions
+    table.trans-list
+    h3 Make a transaction
+    p
+      input#trans-value(type='text')
+      a#trans-add Add
+      a#trans-remove Remove
