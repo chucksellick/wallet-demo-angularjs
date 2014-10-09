@@ -20,8 +20,19 @@
           return memo + item.amount;
         }, 0);
       };
-      return $scope.resetItems = function() {
+      $scope.resetItems = function() {
         return $scope.items = [];
+      };
+      return $scope.$on('resetWallet', function(e, args) {
+        return $scope.resetItems();
+      });
+    }
+  ]);
+
+  app.controller('menuController', [
+    '$scope', function($scope) {
+      return $scope.reset = function() {
+        return $scope.$emit('resetWallet', {});
       };
     }
   ]);

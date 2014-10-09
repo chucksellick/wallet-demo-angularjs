@@ -4,11 +4,11 @@
     <title>Wallet Demo App</title>
   </head>
   <body>
-    <article id="layout" ng-app="walletApp">
+    <article id="layout" ng-app="walletApp" ng-controller="walletController">
       <header>
         <h1>Wallet Demo</h1>
         <div id="menu" ng-include src=" 'partials/menu.html' "></div>
-        <div id="page" ng-include src=" 'partials/wallet.html' " ng-controller="walletController"></div>
+        <div id="page" ng-include src=" 'partials/wallet.html' "></div>
         <footer>&copy;2014 Peter Hurst</footer>
       </header>
     </article>

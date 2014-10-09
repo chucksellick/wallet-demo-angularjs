@@ -10,4 +10,12 @@ app.controller('walletController', ['$scope', ($scope)->
   , 0);
   $scope.resetItems = ()->
     $scope.items = []
+  $scope.$on('resetWallet', (e, args)->
+    $scope.resetItems()
+  )
+])
+
+app.controller('menuController', ['$scope', ($scope)->
+  $scope.reset = ()->
+    $scope.$emit('resetWallet', {})
 ])

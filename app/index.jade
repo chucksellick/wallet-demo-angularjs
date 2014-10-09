@@ -3,11 +3,11 @@ html
   head
     title Wallet Demo App
   body
-    article#layout(ng-app='walletApp',ng-controller="walletController")
+    article#layout(ng-app='walletApp',ng-controller='walletController')
       header
         h1 Wallet Demo
         div#menu(ng-include,src=" 'partials/menu.html' ")
-        div#page(ng-include,src=" 'partials/wallet.html' ", ng-controller='walletController')
+        div#page(ng-include,src=" 'partials/wallet.html' ")
         footer &copy;2014 Peter Hurst
     script(type="text/javascript",src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular.js")
     script(type="text/javascript",src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.5.2/underscore-min.js")
