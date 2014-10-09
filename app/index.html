@@ -7,8 +7,8 @@
     <article id="layout" ng-app="walletApp">
       <header>
         <h1>Wallet Demo</h1>
-        <div id="menu" ng-include="menu"></div>
-        <div id="page" ng-include="wallet" ng-controller="walletController"></div>
+        <div id="menu" ng-include="partials/menu.html"></div>
+        <div id="page" ng-include="partials/wallet.html" ng-controller="walletController"></div>
         <footer>&copy;2014 Peter Hurst</footer>
       </header>
     </article>
