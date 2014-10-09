@@ -20,6 +20,12 @@
           return memo + item.amount;
         }, 0);
       };
+      $scope.addItem = function(amount) {
+        return $scope.items.push({
+          date: new Date(),
+          amount: amount
+        });
+      };
       $scope.resetItems = function() {
         return $scope.items = [];
       };
