@@ -13,4 +13,12 @@ article#wallet
         td {{item.date | date}}
         td {{item.amount | currency : '£' }}
     h3 Make a transaction
-    p #[input#trans-value(type='text')] #[a#trans-add(href='#') Add] #[a#trans-remove(href='#') Remove]
+    form(name='walletForm',role="form")
+      p
+        input#trans-value(type='number',required,min='0',ng-model='transAmount')
+        a#trans-add(href='#',ng-click='addAmount(walletForm, transAmount)') Add
+        a#trans-remove(href='#',ng-click='removeAmount(walletForm,transAmount)') Remove
+      div.errors(ng-show="walletForm.$invalid")
+        p.error(ng-show="walletForm.$error.required") Please enter an amount
+        p.error(ng-show="walletForm.$dirty && walletForm.$error.min") You must enter a positive amount
+        p.error(ng-show="walletForm.$dirty && walletForm.$error.number") The value must be a number

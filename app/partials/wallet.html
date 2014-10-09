@@ -1,3 +1,4 @@
+
 <article id="wallet">
   <header>
     <h1>Your Wallet</h1>
@@ -17,8 +18,15 @@
       </tr>
     </table>
     <h3>Make a transaction</h3>
-    <p>
-      <input id="trans-value" type="text"/> <a id="trans-add" href="#">Add</a> <a id="trans-remove" href="#">Remove</a>
-    </p>
+    <form name="walletForm" role="form">
+      <p>
+        <input id="trans-value" type="number" required="required" min="0" ng-model="transAmount"/><a id="trans-add" href="#" ng-click="addAmount(walletForm, transAmount)">Add</a><a id="trans-remove" href="#" ng-click="removeAmount(walletForm,transAmount)">Remove</a>
+      </p>
+      <div ng-show="walletForm.$invalid" class="errors">
+        <p ng-show="walletForm.$error.required" class="error">Please enter an amount</p>
+        <p ng-show="walletForm.$dirty &amp;&amp; walletForm.$error.min" class="error">You must enter a positive amount</p>
+        <p ng-show="walletForm.$dirty &amp;&amp; walletForm.$error.number" class="error">The value must be a number</p>
+      </div>
+    </form>
   </div>
 </article>

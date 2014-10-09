@@ -8,23 +8,31 @@
     '$scope', 'localStorageService', function($scope, localStorageService) {
       var items;
       items = localStorageService.get('walletItems');
-      console.log(items);
       $scope.items = items != null ? items : [];
       $scope.persist = function() {
-        localStorageService.set('walletItems', $scope.items);
-        return console.log($scope.items);
+        return localStorageService.set('walletItems', $scope.items);
       };
       $scope.getTotal = function() {
         return _.reduce($scope.items, function(memo, item) {
           return memo + item.amount;
         }, 0);
       };
-      $scope.addItem = function(amount) {
+      $scope.addItem = function(walletForm, amount) {
+        console.log(walletForm);
+        if (walletForm.$invalid) {
+          return;
+        }
         $scope.items.push({
           date: new Date(),
           amount: amount
         });
         return $scope.persist();
+      };
+      $scope.addAmount = function(walletForm, amount) {
+        return $scope.addItem(walletForm, amount);
+      };
+      $scope.removeAmount = function(walletForm, amount) {
+        return $scope.addItem(walletForm, -amount);
       };
       $scope.resetItems = function() {
         $scope.items = [];
