@@ -1,10 +1,10 @@
 
-<article id="wallet">
+<article id="wallet" ng-controller="walletController">
   <header>
     <h1>Your Wallet</h1>
   </header>
   <p class="total">Grand total:</p>
-  <p class="total-value">{{grandTotal}}</p>
+  <p class="total-value">{{getTotal()}}</p>
   <h2>Transactions</h2>
   <div id="transactions">
     <table class="trans-list">
@@ -12,14 +12,14 @@
         <th>Date</th>
         <th>Amount</th>
       </tr>
-      <tr ng-repeat="item in wallet">
-        <td>{{date}}</td>
-        <td>{{amount}}</td>
+      <tr ng-repeat="item in items">
+        <td>{{item.date}}</td>
+        <td>{{item.amount}}</td>
       </tr>
     </table>
     <h3>Make a transaction</h3>
     <p>
-      <input id="trans-value" type="text"/><a id="trans-add">Add</a><a id="trans-remove">Remove</a>
+      <input id="trans-value" type="text"/> <a id="trans-add" href="#">Add</a> <a id="trans-remove" href="#">Remove</a>
     </p>
   </div>
 </article>

@@ -6,7 +6,7 @@
 
   app.controller('walletController', [
     '$scope', function($scope) {
-      return $scope.wallet = [
+      $scope.items = [
         {
           date: new Date(2014, 9, 9, 10, 30, 0),
           amount: 10.50
@@ -15,6 +15,11 @@
           amount: -6.23
         }
       ];
+      return $scope.getTotal = function() {
+        return _.reduce($scope.items, function(memo, item) {
+          return memo + item.amount;
+        }, 0);
+      };
     }
   ]);
 
