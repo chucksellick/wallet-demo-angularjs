@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html ng-app>
+<html>
   <head>
     <title>Wallet Demo App</title>
   </head>
   <body>
-    <article id="layout">
+    <article id="layout" ng-app="walletApp" ng-controller="walletController">
       <header>
         <h1>Wallet Demo</h1>
         <nav id="menu">
@@ -18,7 +18,7 @@
         <footer>&copy;2014 Peter Hurst</footer>
       </header>
     </article>
-    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular.min.js"></script>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/coffee-script/1.7.1/coffee-script.min.js"></script>
     <script type="text/coffeescript" src="scripts/project.coffee"></script>
   </body>

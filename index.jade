@@ -1,9 +1,9 @@
 doctype html
-html(ng-app)
+html
   head
     title Wallet Demo App
   body
-    article#layout
+    article#layout(ng-app='walletApp',ng-controller='walletController')
       header
         h1 Wallet Demo
         nav#menu
@@ -16,6 +16,6 @@ html(ng-app)
               a(href='#source',id="wallet-source") View source
         div#page
         footer &copy;2014 Peter Hurst
-    script(type="text/javascript",src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular.min.js")
+    script(type="text/javascript",src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular.js")
     script(type="text/javascript",src="https://cdnjs.cloudflare.com/ajax/libs/coffee-script/1.7.1/coffee-script.min.js")
-    script(type="text/coffeescript",src="scripts/project.coffee")
+    script(type="text/javascript",src="scripts/project.js")
