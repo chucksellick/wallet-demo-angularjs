@@ -12,10 +12,10 @@ article#wallet
         button#trans-add.btn.btn-default(ng-click='addAmount(walletForm, transAmount)') Add
         button#trans-remove.btn.btn-default(ng-click='removeAmount(walletForm,transAmount)') Remove
     div.errors(ng-show="walletForm.$invalid")
-      p.error(ng-show="walletForm.$error.required") Please enter an amount
-      p.error(ng-show="walletForm.$dirty && walletForm.$error.min") You must enter a positive amount
-      p.error(ng-show="walletForm.$dirty && walletForm.$error.number") The value must be a number
-      p.error(ng-show="walletForm.$dirty && walletForm.$error.negativeTotal") You cannot have a negative wallet total
+      p.alert.alert-danger(ng-show="walletForm.$error.required") Please enter an amount
+      p.alert.alert-danger(ng-show="walletForm.$dirty && walletForm.$error.min") You must enter a positive amount
+      p.alert.alert-danger(ng-show="walletForm.$dirty && walletForm.$error.number") The value must be a number
+      p.alert.alert-danger(ng-show="walletForm.$dirty && walletForm.$error.negativeTotal") You cannot have a negative wallet total
   h2 Previous Transactions
   div#transactions
     p.no-items(ng-show='!items.length') There are no transactions yet

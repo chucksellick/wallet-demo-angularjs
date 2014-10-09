@@ -13,10 +13,10 @@
         <button id="trans-remove" ng-click="removeAmount(walletForm,transAmount)" class="btn btn-default">Remove</button></span>
     </div>
     <div ng-show="walletForm.$invalid" class="errors">
-      <p ng-show="walletForm.$error.required" class="error">Please enter an amount</p>
-      <p ng-show="walletForm.$dirty &amp;&amp; walletForm.$error.min" class="error">You must enter a positive amount</p>
-      <p ng-show="walletForm.$dirty &amp;&amp; walletForm.$error.number" class="error">The value must be a number</p>
-      <p ng-show="walletForm.$dirty &amp;&amp; walletForm.$error.negativeTotal" class="error">You cannot have a negative wallet total</p>
+      <p ng-show="walletForm.$error.required" class="alert alert-danger">Please enter an amount</p>
+      <p ng-show="walletForm.$dirty &amp;&amp; walletForm.$error.min" class="alert alert-danger">You must enter a positive amount</p>
+      <p ng-show="walletForm.$dirty &amp;&amp; walletForm.$error.number" class="alert alert-danger">The value must be a number</p>
+      <p ng-show="walletForm.$dirty &amp;&amp; walletForm.$error.negativeTotal" class="alert alert-danger">You cannot have a negative wallet total</p>
     </div>
   </form>
   <h2>Previous Transactions</h2>
