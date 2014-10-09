@@ -1,0 +1,8 @@
+article#source(ng-controller='sourceController')
+  header.jumbotron
+    h1 View Source
+  div#source-items
+    article.source-item(ng-repeat='item in sources')
+      header
+        h2 {{item.filename}}
+      pre {{item.source}}

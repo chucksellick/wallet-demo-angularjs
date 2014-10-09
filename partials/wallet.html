@@ -1,0 +1,36 @@
+
+<article id="wallet" ng-controller="walletController">
+  <header class="jumbotron">
+    <h1>Your Wallet</h1>
+    <p class="total">Grand total:</p>
+    <h2 class="total-value"><i class="fa fa-gbp"></i> {{getTotal() | currency : '' }}</h2>
+  </header>
+  <h2>Make a Transaction</h2>
+  <form name="walletForm" role="form">
+    <div class="input-group input-group-lg"><span class="input-group-addon">£</span>
+      <input id="trans-value" type="number" required="required" min="0" ng-model="transAmount" placeholder="0.00" class="form-control"/><span class="input-group-btn">
+        <button id="trans-add" ng-click="addAmount(walletForm, transAmount)" class="btn btn-default">Add</button>
+        <button id="trans-remove" ng-click="removeAmount(walletForm,transAmount)" class="btn btn-default">Remove</button></span>
+    </div>
+    <div ng-show="walletForm.$invalid" class="errors">
+      <p ng-show="walletForm.$error.required" class="alert alert-danger">Please enter an amount</p>
+      <p ng-show="walletForm.$dirty &amp;&amp; walletForm.$error.min" class="alert alert-danger">You must enter a positive amount</p>
+      <p ng-show="walletForm.$dirty &amp;&amp; walletForm.$error.number" class="alert alert-danger">The value must be a number</p>
+      <p ng-show="walletForm.$dirty &amp;&amp; walletForm.$error.negativeTotal" class="alert alert-danger">You cannot have a negative wallet total</p>
+    </div>
+  </form>
+  <h2>Previous Transactions</h2>
+  <div id="transactions">
+    <p ng-show="!items.length" class="no-items">There are no transactions yet</p>
+    <table ng-show="items.length" class="table trans-list">
+      <tr>
+        <th>Date</th>
+        <th>Amount</th>
+      </tr>
+      <tr ng-repeat="item in items">
+        <td>{{item.date | date}}</td>
+        <td ng-class="{negative: item.amount&lt;0}">{{item.amount | currency : '£' }}</td>
+      </tr>
+    </table>
+  </div>
+</article>

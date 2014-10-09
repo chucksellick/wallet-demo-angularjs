@@ -1,0 +1,17 @@
+.navbar.navbar-default(role="navigation",ng-controller='menuController')
+  .container-fluid
+    .navbar-header
+      button(type="button",class="navbar-toggle collapsed",data-toggle="collapse",data-target=".navbar-collapse")
+        span.sr-only Toggle navigation
+        span.icon-bar
+        span.icon-bar
+        span.icon-bar
+      a.navbar-brand(href="#") Wallet Demo App
+    .navbar-collapse.collapse
+      ul.nav.navbar-nav
+        li(ng-class="{ active: isPath('/wallet') }")
+          a(href='#wallet',id="wallet-link") Wallet
+        li
+          a(href='#',id="reset-link",ng-click='reset()') Reset
+        li(ng-class="{ active: isPath('/source') }")
+          a(href='#source',id="wallet-source") View source
