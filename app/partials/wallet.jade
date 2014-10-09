@@ -2,7 +2,7 @@ article#wallet
   header.jumbotron
     h1 Your Wallet
     p.total Grand total:
-    p.total-value {{getTotal() | currency : '' }}
+    h2.total-value #[i.fa.fa-gbp] {{getTotal() | currency : '' }}
   h2 Make a Transaction
   form(name='walletForm',role="form")
     div.input-group.input-group-lg
@@ -19,7 +19,7 @@ article#wallet
   h2 Previous Transactions
   div#transactions
     p.no-items(ng-show='!items.length') There are no transactions yet
-    table.trans-list(ng-show='items.length')
+    table.table.trans-list(ng-show='items.length')
       tr
         th Date
         th Amount

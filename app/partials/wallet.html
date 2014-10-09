@@ -3,7 +3,7 @@
   <header class="jumbotron">
     <h1>Your Wallet</h1>
     <p class="total">Grand total:</p>
-    <p class="total-value">{{getTotal() | currency : '' }}</p>
+    <h2 class="total-value"><i class="fa fa-gbp"></i> {{getTotal() | currency : '' }}</h2>
   </header>
   <h2>Make a Transaction</h2>
   <form name="walletForm" role="form">
@@ -22,7 +22,7 @@
   <h2>Previous Transactions</h2>
   <div id="transactions">
     <p ng-show="!items.length" class="no-items">There are no transactions yet</p>
-    <table ng-show="items.length" class="trans-list">
+    <table ng-show="items.length" class="table trans-list">
       <tr>
         <th>Date</th>
         <th>Amount</th>
