@@ -93,7 +93,7 @@ app.controller('sourceController', ['$scope', '$http', ($scope, $http)->
   $scope.sources = []
   # Load source files asynchronously
   async.each(sources,(item,cb)->
-    $http({method: 'GET', url: '/'+item}).success((data, status, headers, config)->
+    $http({method: 'GET', url: item}).success((data, status, headers, config)->
         $scope.sources.push(
           filename: item,
           source: data
