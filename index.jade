@@ -3,18 +3,11 @@ html
   head
     title Wallet Demo App
   body
-    article#layout(ng-app='walletApp',ng-controller='walletController')
+    article#layout(ng-app='walletApp')
       header
         h1 Wallet Demo
-        nav#menu
-          ul
-            li
-              a(href='#wallet',id="wallet-link") Wallet
-            li
-              a(href='#reset',id="reset-link") Reset
-            li
-              a(href='#source',id="wallet-source") View source
-        div#page
+        div#menu(ng-include='menu')
+        div#page(ng-include='wallet',ng-controller='walletController')
         footer &copy;2014 Peter Hurst
     script(type="text/javascript",src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular.js")
     script(type="text/javascript",src="https://cdnjs.cloudflare.com/ajax/libs/coffee-script/1.7.1/coffee-script.min.js")

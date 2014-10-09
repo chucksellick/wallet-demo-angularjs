@@ -4,17 +4,11 @@
     <title>Wallet Demo App</title>
   </head>
   <body>
-    <article id="layout" ng-app="walletApp" ng-controller="walletController">
+    <article id="layout" ng-app="walletApp">
       <header>
         <h1>Wallet Demo</h1>
-        <nav id="menu">
-          <ul>
-            <li><a href="#wallet" id="wallet-link">Wallet</a></li>
-            <li><a href="#reset" id="reset-link">Reset</a></li>
-            <li><a href="#source" id="wallet-source">View source</a></li>
-          </ul>
-        </nav>
-        <div id="page"></div>
+        <div id="menu" ng-include="menu"></div>
+        <div id="page" ng-include="wallet" ng-controller="walletController"></div>
         <footer>&copy;2014 Peter Hurst</footer>
       </header>
     </article>
