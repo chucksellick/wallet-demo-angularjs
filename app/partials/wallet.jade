@@ -3,7 +3,17 @@ article#wallet
     h1 Your Wallet
     p.total Grand total:
     p.total-value {{getTotal() | currency : '' }}
-  h2 Transactions
+  h2 Make a Transaction
+  form(name='walletForm',role="form")
+    p
+      input#trans-value(type='number',required,min='0',ng-model='transAmount')
+      a#trans-add(href='#',ng-click='addAmount(walletForm, transAmount)') Add
+      a#trans-remove(href='#',ng-click='removeAmount(walletForm,transAmount)') Remove
+    div.errors(ng-show="walletForm.$invalid")
+      p.error(ng-show="walletForm.$error.required") Please enter an amount
+      p.error(ng-show="walletForm.$dirty && walletForm.$error.min") You must enter a positive amount
+      p.error(ng-show="walletForm.$dirty && walletForm.$error.number") The value must be a number
+  h2 Previous Transactions
   div#transactions
     p.no-items(ng-show='!items.length') There are no transactions yet
     table.trans-list(ng-show='items.length')
@@ -13,13 +23,3 @@ article#wallet
       tr(ng-repeat='item in items')
         td {{item.date | date}}
         td(ng-class='{negative: item.amount<0}') {{item.amount | currency : '£' }}
-    h3 Make a transaction
-    form(name='walletForm',role="form")
-      p
-        input#trans-value(type='number',required,min='0',ng-model='transAmount')
-        a#trans-add(href='#',ng-click='addAmount(walletForm, transAmount)') Add
-        a#trans-remove(href='#',ng-click='removeAmount(walletForm,transAmount)') Remove
-      div.errors(ng-show="walletForm.$invalid")
-        p.error(ng-show="walletForm.$error.required") Please enter an amount
-        p.error(ng-show="walletForm.$dirty && walletForm.$error.min") You must enter a positive amount
-        p.error(ng-show="walletForm.$dirty && walletForm.$error.number") The value must be a number
