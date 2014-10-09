@@ -1,0 +1,21 @@
+doctype html
+html(ng-app)
+  head
+    script(src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular.min.js")
+    script(src="//cdnjs.cloudflare.com/ajax/libs/coffee-script/1.7.1/coffee-script.min.js")
+    script(type="text/coffeescript",src="scripts/project.coffee")
+    title Wallet Demo App
+    body
+      article#layout
+        header
+          h1 Wallet Demo
+          nav#menu
+            ul
+              li
+                a(href='#wallet',id="wallet-link") Wallet
+              li
+                a(href='#reset',id="reset-link") Reset
+              li
+                a(href='#source',id="wallet-source") View source
+          div#page
+          footer &copy;2014 Peter Hurst
