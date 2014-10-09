@@ -1,4 +1,20 @@
-app = angular.module('walletApp',[ 'LocalStorageModule' ]);
+app = angular.module('walletApp',[ 'LocalStorageModule','ngRoute' ]);
+
+app.config(['$routeProvider',
+  ($routeProvider)->
+    $routeProvider.
+      when('/wallet', {
+        templateUrl: 'partials/wallet.html',
+        controller: 'walletController'
+      }).
+      when('/source', {
+        templateUrl: 'partials/source.html',
+        controller: 'sourceController'
+      }).
+      otherwise({
+        redirectTo: '/wallet'
+      });
+])
 
 app.controller('walletController', ['$scope', 'localStorageService', ($scope, localStorageService)->
   # Get items from localStorage

@@ -2,7 +2,21 @@
 (function() {
   var app;
 
-  app = angular.module('walletApp', ['LocalStorageModule']);
+  app = angular.module('walletApp', ['LocalStorageModule', 'ngRoute']);
+
+  app.config([
+    '$routeProvider', function($routeProvider) {
+      return $routeProvider.when('/wallet', {
+        templateUrl: 'partials/wallet.html',
+        controller: 'walletController'
+      }).when('/source', {
+        templateUrl: 'partials/source.html',
+        controller: 'sourceController'
+      }).otherwise({
+        redirectTo: '/wallet'
+      });
+    }
+  ]);
 
   app.controller('walletController', [
     '$scope', 'localStorageService', function($scope, localStorageService) {
