@@ -1,17 +1,18 @@
 article#wallet
-  header
+  header.jumbotron
     h1 Your Wallet
-  p.total Grand total:
-  p.total-value {{getTotal() | currency : '£' }}
+    p.total Grand total:
+    p.total-value {{getTotal() | currency : '' }}
   h2 Transactions
   div#transactions
-    table.trans-list
+    p.no-items(ng-show='!items.length') There are no transactions yet
+    table.trans-list(ng-show='items.length')
       tr
         th Date
         th Amount
       tr(ng-repeat='item in items')
         td {{item.date | date}}
-        td {{item.amount | currency : '£' }}
+        td(ng-class='{negative: item.amount<0}') {{item.amount | currency : '£' }}
     h3 Make a transaction
     form(name='walletForm',role="form")
       p

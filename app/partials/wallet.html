@@ -1,13 +1,14 @@
 
 <article id="wallet">
-  <header>
+  <header class="jumbotron">
     <h1>Your Wallet</h1>
+    <p class="total">Grand total:</p>
+    <p class="total-value">{{getTotal() | currency : '' }}</p>
   </header>
-  <p class="total">Grand total:</p>
-  <p class="total-value">{{getTotal() | currency : '£' }}</p>
   <h2>Transactions</h2>
   <div id="transactions">
-    <table class="trans-list">
+    <p ng-show="!items.length" class="no-items">There are no transactions yet</p>
+    <table ng-show="items.length" class="trans-list">
       <tr>
         <th>Date</th>
         <th>Amount</th>

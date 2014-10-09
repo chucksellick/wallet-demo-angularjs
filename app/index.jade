@@ -2,14 +2,18 @@ doctype html
 html
   head
     title Wallet Demo App
+    <!-- Latest compiled and minified CSS -->
+    link(rel="stylesheet", href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css")
+    <!-- Optional theme -->
+    link(rel="stylesheet", href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css")
+    <!-- Latest compiled and minified JavaScript -->
+    script(src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js")
   body
     article#layout(ng-app='walletApp',ng-controller='walletController')
-      header
-        h1 Wallet Demo
-        div#menu(ng-include,src=" 'partials/menu.html' ")
-        div#page(ng-include,src=" 'partials/wallet.html' ")
-        div(ng-include,src=" 'partials/source.html' ")
-        footer &copy;2014 Peter Hurst
+      header#menu(ng-include,src=" 'partials/menu.html' ")
+      div#page(ng-include,src=" 'partials/wallet.html' ")
+      div(ng-include,src=" 'partials/source.html' ")
+      footer &copy;2014 Peter Hurst
     script(type="text/javascript",src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular.js")
     script(type="text/javascript",src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.5.2/underscore-min.js")
     script(type="text/javascript",src="https:////cdnjs.cloudflare.com/ajax/libs/async/0.9.0/async.js")

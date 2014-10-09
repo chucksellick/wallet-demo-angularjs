@@ -1,17 +1,17 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Wallet Demo App</title>
+    <title>Wallet Demo App</title><!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"><!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css"><!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
   </head>
   <body>
     <article id="layout" ng-app="walletApp" ng-controller="walletController">
-      <header>
-        <h1>Wallet Demo</h1>
-        <div id="menu" ng-include src=" 'partials/menu.html' "></div>
-        <div id="page" ng-include src=" 'partials/wallet.html' "></div>
-        <div ng-include src=" 'partials/source.html' "></div>
-        <footer>&copy;2014 Peter Hurst</footer>
-      </header>
+      <header id="menu" ng-include src=" 'partials/menu.html' "></header>
+      <div id="page" ng-include src=" 'partials/wallet.html' "></div>
+      <div ng-include src=" 'partials/source.html' "></div>
+      <footer>&copy;2014 Peter Hurst</footer>
     </article>
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.5.2/underscore-min.js"></script>
