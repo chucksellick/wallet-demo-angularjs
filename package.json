@@ -7,7 +7,6 @@
   "dependencies": {
     "async": "~0.8.0",
     "express": "4.x",
-    "plates": "https://github.com/flatiron/plates/tarball/master"
   },
   "private": true
 }
