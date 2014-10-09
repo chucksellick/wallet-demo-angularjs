@@ -7,7 +7,16 @@
   <p class="total-value">{{grandTotal}}</p>
   <h2>Transactions</h2>
   <div id="transactions">
-    <table class="trans-list"></table>
+    <table class="trans-list">
+      <tr>
+        <th>Date</th>
+        <th>Amount</th>
+      </tr>
+      <tr ng-repeat="item in wallet">
+        <td>{{date}}</td>
+        <td>{{amount}}</td>
+      </tr>
+    </table>
     <h3>Make a transaction</h3>
     <p>
       <input id="trans-value" type="text"/><a id="trans-add">Add</a><a id="trans-remove">Remove</a>
