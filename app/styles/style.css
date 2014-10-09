@@ -1,3 +1,4 @@
-td.negative {
+td.negative,
+.error {
   color: #f00;
 }

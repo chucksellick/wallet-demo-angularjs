@@ -18,7 +18,11 @@
         }, 0);
       };
       $scope.addItem = function(walletForm, amount) {
-        console.log(walletForm);
+        if ($scope.getTotal() + amount < 0) {
+          walletForm.$setValidity("negativeTotal", false, "trans-value");
+        } else {
+          walletForm.$setValidity("negativeTotal", true, "trans-value");
+        }
         if (walletForm.$invalid) {
           return;
         }
@@ -28,6 +32,7 @@
         });
         return $scope.persist();
       };
+      $scope.onlyNumbers = /^[1-9][0-9]*$/;
       $scope.addAmount = function(walletForm, amount) {
         return $scope.addItem(walletForm, amount);
       };

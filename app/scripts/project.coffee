@@ -17,7 +17,11 @@ app.controller('walletController', ['$scope', 'localStorageService', ($scope, lo
 
   # Add a new wallet item
   $scope.addItem = (walletForm, amount)->
-    console.log walletForm
+    if $scope.getTotal()+amount < 0
+      walletForm.$setValidity("negativeTotal", false, "trans-value")
+    else
+      walletForm.$setValidity("negativeTotal", true, "trans-value")
+
     if walletForm.$invalid
       return
     $scope.items.push(
@@ -25,6 +29,9 @@ app.controller('walletController', ['$scope', 'localStorageService', ($scope, lo
       amount: amount
     )
     $scope.persist()
+
+  # Validation pattern to ensure greater than 0
+  $scope.onlyNumbers = /^[1-9][0-9]*$/;
 
   # Add an amount
   $scope.addAmount = (walletForm, amount)->
