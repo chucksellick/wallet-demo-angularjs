@@ -2,32 +2,33 @@
 (function() {
   var app;
 
-  app = angular.module('walletApp', []);
+  app = angular.module('walletApp', ['LocalStorageModule']);
 
   app.controller('walletController', [
-    '$scope', function($scope) {
-      $scope.items = [
-        {
-          date: new Date(2014, 9, 9, 10, 30, 0),
-          amount: 10.50
-        }, {
-          date: new Date(2014, 9, 8, 11, 30, 0),
-          amount: -6.23
-        }
-      ];
+    '$scope', 'localStorageService', function($scope, localStorageService) {
+      var items;
+      items = localStorageService.get('walletItems');
+      console.log(items);
+      $scope.items = items != null ? items : [];
+      $scope.persist = function() {
+        localStorageService.set('walletItems', $scope.items);
+        return console.log($scope.items);
+      };
       $scope.getTotal = function() {
         return _.reduce($scope.items, function(memo, item) {
           return memo + item.amount;
         }, 0);
       };
       $scope.addItem = function(amount) {
-        return $scope.items.push({
+        $scope.items.push({
           date: new Date(),
           amount: amount
         });
+        return $scope.persist();
       };
       $scope.resetItems = function() {
-        return $scope.items = [];
+        $scope.items = [];
+        return $scope.persist();
       };
       return $scope.$on('resetWallet', function(e, args) {
         return $scope.resetItems();
